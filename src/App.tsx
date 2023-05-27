@@ -1,6 +1,6 @@
-import { Box, Icon, IconButton, Slider, TextField, Typography } from '@mui/material'
-import './App.css'
+import { Box, Icon, IconButton, Slider, Typography } from '@mui/material'
 import React from 'react'
+import './App.css'
 
 type Player = {
   player1: number
@@ -61,13 +61,18 @@ const App = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Box>
+            <Box
+              sx={{
+                width: '300px',
+              }}
+            >
               <Slider
                 value={scores.player1}
                 onChange={(event: Event, newValue: number | number[]) => {
                   handleScores('player1', newValue as number)
                 }}
                 min={0}
+                max={100}
               />
             </Box>
           </Box>
@@ -129,13 +134,24 @@ const App = () => {
             >
               <Icon>remove</Icon>
             </IconButton>
-            <Slider
-              value={actionOnScore.player1}
-              onChange={(event: Event, newValue: number | number[]) => {
-                setActionOnScore((prev) => ({ ...prev, player1: newValue as number }))
+            <Box
+              sx={{
+                width: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
               }}
-              min={0}
-            />
+            >
+              <Typography variant="h3">{actionOnScore.player1}</Typography>
+              <Slider
+                max={100}
+                value={actionOnScore.player1}
+                onChange={(event: Event, newValue: number | number[]) => {
+                  setActionOnScore((prev) => ({ ...prev, player1: newValue as number }))
+                }}
+                min={0}
+              />
+            </Box>
             <IconButton
               sx={{
                 backgroundColor: 'white',
@@ -177,8 +193,13 @@ const App = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Box>
+            <Box
+              sx={{
+                width: '300px',
+              }}
+            >
               <Slider
+                max={100}
                 value={scores.player2}
                 onChange={(event: Event, newValue: number | number[]) => {
                   handleScores('player2', newValue as number)
@@ -245,13 +266,25 @@ const App = () => {
             >
               <Icon>remove</Icon>
             </IconButton>
-            <Slider
-              value={actionOnScore.player2}
-              onChange={(event: Event, newValue: number | number[]) => {
-                setActionOnScore((prev) => ({ ...prev, player2: newValue as number }))
+            <Box
+              sx={{
+                width: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
               }}
-              min={0}
-            />
+              px={1}
+            >
+              <Typography variant="h3">{actionOnScore.player2}</Typography>
+              <Slider
+                max={100}
+                value={actionOnScore.player2}
+                onChange={(event: Event, newValue: number | number[]) => {
+                  setActionOnScore((prev) => ({ ...prev, player2: newValue as number }))
+                }}
+                min={0}
+              />
+            </Box>
             <IconButton
               sx={{
                 backgroundColor: 'white',
