@@ -69,6 +69,7 @@ const App = () => {
                   handleScores('player1', Number(e.target.value))
                 }}
                 value={scores.player1}
+                type="number"
               />
             </Box>
           </Box>
@@ -137,6 +138,7 @@ const App = () => {
               onChange={(e) => {
                 setActionOnScore((prev) => ({ ...prev, player1: Number(e.target.value) }))
               }}
+              type="number"
             />
             <IconButton
               sx={{
@@ -179,7 +181,7 @@ const App = () => {
             }}
           >
             <Box>
-              <TextField label={'Vida inicial'} size="small" value={scores.player2} />
+              <TextField label={'Vida inicial'} size="small" value={scores.player2} type="number" />
             </Box>
           </Box>
           <Box
@@ -247,6 +249,7 @@ const App = () => {
               onChange={(e) => {
                 setActionOnScore((prev) => ({ ...prev, player2: Number(e.target.value) }))
               }}
+              type="number"
             />
             <IconButton
               sx={{
