@@ -1,4 +1,4 @@
-import { Box, Icon, IconButton, TextField, Typography } from '@mui/material'
+import { Box, Icon, IconButton, Slider, TextField, Typography } from '@mui/material'
 import './App.css'
 import React from 'react'
 
@@ -33,7 +33,8 @@ const App = () => {
       sx={{
         display: 'flex',
         flexDirection: 'row',
-        height: '90vh',
+        height: '100vh',
+        py: 2,
       }}
     >
       <Box
@@ -62,6 +63,13 @@ const App = () => {
             }}
           >
             <Box>
+              <Slider
+                value={scores.player1}
+                onChange={(event: Event, newValue: number | number[]) => {
+                  handleScores('player1', newValue as number)
+                }}
+                min={0}
+              />
               <TextField
                 label={'Vida inicial'}
                 size="small"
