@@ -33,7 +33,7 @@ const App = () => {
       sx={{
         display: 'flex',
         flexDirection: 'row',
-        height: '100vh',
+        height: '90vh',
       }}
     >
       <Box
