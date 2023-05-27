@@ -34,7 +34,6 @@ const App = () => {
         display: 'flex',
         flexDirection: 'row',
         height: '100vh',
-        py: 2,
       }}
     >
       <Box
@@ -43,6 +42,7 @@ const App = () => {
           flex: 1,
           backgroundColor: 'red',
           py: 1,
+          px: 2,
         }}
       >
         <Box
@@ -52,7 +52,6 @@ const App = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             height: '100%',
-            px: 1,
           }}
         >
           <Box
@@ -69,15 +68,6 @@ const App = () => {
                   handleScores('player1', newValue as number)
                 }}
                 min={0}
-              />
-              <TextField
-                label={'Vida inicial'}
-                size="small"
-                onChange={(e) => {
-                  handleScores('player1', Number(e.target.value))
-                }}
-                value={scores.player1}
-                type="number"
               />
             </Box>
           </Box>
@@ -139,14 +129,12 @@ const App = () => {
             >
               <Icon>remove</Icon>
             </IconButton>
-            <TextField
-              label={'Valor'}
-              size="small"
+            <Slider
               value={actionOnScore.player1}
-              onChange={(e) => {
-                setActionOnScore((prev) => ({ ...prev, player1: Number(e.target.value) }))
+              onChange={(event: Event, newValue: number | number[]) => {
+                setActionOnScore((prev) => ({ ...prev, player1: newValue as number }))
               }}
-              type="number"
+              min={0}
             />
             <IconButton
               sx={{
@@ -169,6 +157,7 @@ const App = () => {
           flex: 1,
           backgroundColor: 'blue',
           py: 1,
+          px: 2,
         }}
       >
         <Box
@@ -189,7 +178,13 @@ const App = () => {
             }}
           >
             <Box>
-              <TextField label={'Vida inicial'} size="small" value={scores.player2} type="number" />
+              <Slider
+                value={scores.player2}
+                onChange={(event: Event, newValue: number | number[]) => {
+                  handleScores('player2', newValue as number)
+                }}
+                min={0}
+              />
             </Box>
           </Box>
           <Box
@@ -250,14 +245,12 @@ const App = () => {
             >
               <Icon>remove</Icon>
             </IconButton>
-            <TextField
-              label={'Valor'}
-              size="small"
+            <Slider
               value={actionOnScore.player2}
-              onChange={(e) => {
-                setActionOnScore((prev) => ({ ...prev, player2: Number(e.target.value) }))
+              onChange={(event: Event, newValue: number | number[]) => {
+                setActionOnScore((prev) => ({ ...prev, player2: newValue as number }))
               }}
-              type="number"
+              min={0}
             />
             <IconButton
               sx={{
